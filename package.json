@@ -33,7 +33,8 @@
     "coverage": "vitest run --coverage",
     "p": "standard-version",
     "c": "git push --tags",
-    "g": "git push gitee-dotenv master & git push github-dotenv main"
+    "gitee": "git checkout master &git push gitee-dotenv master",
+    "github": "git checkout main & git push github-dotenv main"
   },
   "files": [
     "index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@mazp/dotenv",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "sishen",
   "license": "MIT",
   "description": "Injecting data to process.env in runtime or running the command",

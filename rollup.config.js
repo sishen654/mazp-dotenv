@@ -44,6 +44,11 @@ function resolveConfig (option) {
   let returnArr = [{
     input,
     output: defaultOutput,
+    watch: {
+      clearScreen: true,
+      exclude: 'node_modules/**',
+      include: 'src/**/*.ts'
+    },
     plugins: defaultPlugins.concat(plugins)
   }]
   // 6 判断是否添加声明文件
@@ -56,6 +61,7 @@ function resolveConfig (option) {
     returnArr.push({
       input,
       output: defaultOutput,
+      watch: false,
       plugins: [dts()]
     })
   }
@@ -101,7 +107,7 @@ function createConfig (configArr = [], format = ["cjs", "es"]) {
     }
     // 2 传入对象
     else {
-      if (v.once) { format = ["es"] }
+      if (v.formatOnce) { format = ["es"] }
       format.forEach(t => {
         if (!t.bundleName) {
           let defaultConfig = Object.assign({ format: t }, getBundleName(t, v.input))
@@ -115,5 +121,4 @@ function createConfig (configArr = [], format = ["cjs", "es"]) {
   return arr
 }
 
-export default createConfig(["src/index.ts", { input: "src/cli.ts", declaration: false, once: true }])
-// export default createConfig([{ input: "src/index.ts" }])
+export default createConfig(["src/index.ts", { input: "src/cli.ts", declaration: false, formatOnce: true }])

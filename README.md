@@ -44,6 +44,7 @@ declare function dotenv(option: DotenvOption): void;
 ```
 
 you can use this API, pass the path parameter inject data to process.env, path is a .env file location, if you do not pass, default use that named config.env file in the root dir.
+The path parameter is a relative root dir, so you maybe use a path or url module to load the correct path.
 
 ```js
 // ESM
